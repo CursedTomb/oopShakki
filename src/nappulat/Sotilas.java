@@ -4,7 +4,6 @@ import shakki.*;
 
 public class Sotilas extends Nappula
 {
-	
 	public Sotilas(boolean vari, int x, int y)
 	{
 		super(vari, 0, x, y);
@@ -24,22 +23,22 @@ public class Sotilas extends Nappula
 	{
 		if(vari)
 		{
-			if(x-1 >=0 && !(peli.lauta[x-1][y] instancef nappula))
+			if(x-1 >=0 && !(peli.lauta[x-1][y] instancef Nappula))
 			{
 				liikkeet.add(Ruutu(x-1,y));
 			}
-			if(x-2 >=0 && !(peli.lauta[x-2][y] instanceof nappula && eka)
+			if(x-2 >=0 && !(peli.lauta[x-2][y] instanceof Nappula && eka)
 			{
 				liikkeet.add(Ruutu(x-2,y));
 			}
-			if(x-1 >=0 && y-1 >=0 && peli.lauta[x-1][y-1] instanceof nappula)
+			if(x-1 >=0 && y-1 >=0 && peli.lauta[x-1][y-1] instanceof Nappula)
 			{
 				if(!peli.lauta[x-1][y-1].annaVari())
 				{
 					liikkeet.add(Ruutu(x-1,y-1));
 				}
 			}
-			if(x-1>=0 && y+1 <= 7 && peli.lauta[x-1][y+1] instanceof nappula)
+			if(x-1>=0 && y+1 <= 7 && peli.lauta[x-1][y+1] instanceof Nappula)
 			{
 				if(!peli.lauta[x-1][y+1].annaVari())
 				{
@@ -49,22 +48,22 @@ public class Sotilas extends Nappula
 		}
 		else
 		{
-			if(x+1 <=7 && !(peli.lauta[x+1][y] instancef nappula))
+			if(x+1 <=7 && !(peli.lauta[x+1][y] instancef Nappula))
 			{
 				liikkeet.add(Ruutu(x+1,y));
 			}
-			if(x+2 <=7 && !(peli.lauta[x+2][y] instanceof nappula && eka)
+			if(x+2 <=7 && !(peli.lauta[x+2][y] instanceof Nappula && eka)
 			{
 				liikkeet.add(Ruutu(x+2,y));
 			}
-			if(x+1 <=7 && y-1 >=0 && peli.lauta[x+1][y-1] instanceof nappula)
+			if(x+1 <=7 && y-1 >=0 && peli.lauta[x+1][y-1] instanceof Nappula)
 			{
 				if(peli.lauta[x+1][y-1].annaVari())
 				{
 					liikkeet.add(Ruutu(x+1,y-1));
 				}
 			}
-			if(x+1<=7 && y+1 <= 7 && peli.lauta[x+1][y+1] instanceof nappula)
+			if(x+1<=7 && y+1 <= 7 && peli.lauta[x+1][y+1] instanceof Nappula)
 			{
 				if(peli.lauta[x+1][y+1].annaVari())
 				{
