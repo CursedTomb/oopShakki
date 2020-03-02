@@ -10,27 +10,67 @@ public class Sotilas extends Nappula
 		super(vari, 0, x, y);
 	}
 
-	//@Override
-	/*protected void liiku()
+	protected void liiku()
 	{
-		//Array
-		if(vari)
-		{
-			int etene = -1;		
-		}
+		
 		if(eka)
 		{
-
 			eka = false;
 		}
 		
-	}*/
+	}
 
-	/*protected void mahdollisetLiikkeet()
+	protected void mahdollisetLiikkeet()
 	{
 		if(vari)
 		{
-			for(int i = x-1;i<=x+1;i++)
+			if(x-1 >=0 && !(peli.lauta[x-1][y] instancef nappula))
+			{
+				liikkeet.add(Ruutu(x-1,y));
+			}
+			if(x-2 >=0 && !(peli.lauta[x-2][y] instanceof nappula && eka)
+			{
+				liikkeet.add(Ruutu(x-2,y));
+			}
+			if(x-1 >=0 && y-1 >=0 && peli.lauta[x-1][y-1] instanceof nappula)
+			{
+				if(!peli.lauta[x-1][y-1].annaVari())
+				{
+					liikkeet.add(Ruutu(x-1,y-1));
+				}
+			}
+			if(x-1>=0 && y+1 <= 7 && peli.lauta[x-1][y+1] instanceof nappula)
+			{
+				if(!peli.lauta[x-1][y+1].annaVari())
+				{
+					liikkeet.add(Ruutu(x-1,y+1))
+				}
+			}
 		}
-	}*/
+		else
+		{
+			if(x+1 <=7 && !(peli.lauta[x+1][y] instancef nappula))
+			{
+				liikkeet.add(Ruutu(x+1,y));
+			}
+			if(x+2 <=7 && !(peli.lauta[x+2][y] instanceof nappula && eka)
+			{
+				liikkeet.add(Ruutu(x+2,y));
+			}
+			if(x+1 <=7 && y-1 >=0 && peli.lauta[x+1][y-1] instanceof nappula)
+			{
+				if(peli.lauta[x+1][y-1].annaVari())
+				{
+					liikkeet.add(Ruutu(x+1,y-1));
+				}
+			}
+			if(x+1<=7 && y+1 <= 7 && peli.lauta[x+1][y+1] instanceof nappula)
+			{
+				if(peli.lauta[x+1][y+1].annaVari())
+				{
+					liikkeet.add(Ruutu(x+1,y+1))
+				}
+			}
+		}
+	}
 }

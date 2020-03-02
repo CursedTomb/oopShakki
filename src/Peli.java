@@ -80,7 +80,7 @@ public class Peli
         {
             if(i%8==0) System.out.println("");
             if(lauta[i/8][1%8] != null)
-                System.out.print("|"+((Nappula)lauta[i/8][i%8]).annaTyyppi()+" "+lauta[i/8][i%8].annaVari() + "|");
+                System.out.print("|"+((Nappula)lauta[i/8][i%8]).annaTyyppi()+" "+lauta[i/8][i%8].annaVariS() + "|");
             else
                 System.out.print("|   |");
             if(i%8==7) System.out.print(aak.charAt(i/8));

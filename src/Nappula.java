@@ -21,13 +21,17 @@ public abstract class Nappula
         return tyyppi;
     }    
     
-    protected String annaVari()
+    protected String annaVariS()
     {
         if(vari)
         {
             return "V";
         }
         else return "M";
+    }
+    protected boolean annaVari()
+    {
+        return vari;
     }
 
     //protected abstract void mahdollisetLiikkeet();
