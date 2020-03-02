@@ -9,10 +9,95 @@ public class Kuningas extends Nappula
 		super(vari, 4, sijaintiX, sijaintiY);
 	}
 
-	@Override
-	protected void liiku()
+	protected void mahdollisetLiikkeet()
 	{
-		// TODO Auto-generated method stub
-		
+		if(x-1>=0)
+		{
+			if(Peli.lauta[x-1][y] instanceof Nappula)
+			{
+				if(Peli.lauta[x-1][y].annaVari()!= this.annaVari())
+				{
+					liikkeet.add(Ruutu(x-1,y));
+				}
+			}
+			else liikkeet.add(Ruutu(x-1,y));				
+		}
+		if(x+1<=7)
+		{
+			if(Peli.lauta[x+1][y] instanceof Nappula)
+			{
+				if(Peli.lauta[x+1][y].annaVari()!= this.annaVari())
+				{
+					liikkeet.add(Ruutu(x+1,y));
+				}
+			}
+			else liikkeet.add(Ruutu(x+1,y));				
+		}
+		if(y-1>=0)
+		{
+			if(Peli.lauta[x][y-1] instanceof Nappula)
+			{
+				if(Peli.lauta[x][y-1].annaVari()!= this.annaVari())
+				{
+					liikkeet.add(Ruutu(x,y-1));
+				}
+			}
+			else liikkeet.add(Ruutu(x,y-1));				
+		}
+		if(y+1<=7)
+		{
+			if(Peli.lauta[x][y+1] instanceof Nappula)
+			{
+				if(Peli.lauta[x][y+1].annaVari()!= this.annaVari())
+				{
+					liikkeet.add(Ruutu(x,y+1));
+				}
+			}
+			else liikkeet.add(Ruutu(x,y+1));				
+		}
+		if(x-1>=0 && y-1>=0)
+		{
+			if(Peli.lauta[x-1][y-1] instanceof Nappula)
+			{
+				if(Peli.lauta[x-1][y-1].annaVari()!= this.annaVari())
+				{
+					liikkeet.add(Ruutu(x-1,y-1));
+				}
+			}
+			else liikkeet.add(Ruutu(x-1,y-1));				
+		}
+		if(x+1<=7 && y-1 >=0)
+		{
+			if(Peli.lauta[x+1][y-1] instanceof Nappula)
+			{
+				if(Peli.lauta[x+1][y-1].annaVari()!= this.annaVari())
+				{
+					liikkeet.add(Ruutu(x+1,y-1));
+				}
+			}
+			else liikkeet.add(Ruutu(x+1,y-1));				
+		}
+		if(x-1>=0 && y+1<=7)
+		{
+			if(Peli.lauta[x-1][y+1] instanceof Nappula)
+			{
+				if(Peli.lauta[x-1][y+1].annaVari()!= this.annaVari())
+				{
+					liikkeet.add(Ruutu(x-1,y+1));
+				}
+			}
+			else liikkeet.add(Ruutu(x-1,y+1));				
+		}
+		if(x+1<=7 && y-1 >=0)
+		{
+			if(Peli.lauta[x+1][y-1] instanceof Nappula)
+			{
+				if(Peli.lauta[x+1][y-1].annaVari()!= this.annaVari())
+				{
+					liikkeet.add(Ruutu(x+1,y-1));
+				}
+			}
+			else liikkeet.add(Ruutu(x+1,y-1));				
+		}
 	}
 }
