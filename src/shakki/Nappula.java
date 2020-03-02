@@ -8,6 +8,7 @@ public abstract class Nappula
     protected int x;
     protected int y;
     protected ArrayList<Ruutu> liikkeet = new ArrayList<Ruutu>();
+    
     public Nappula(boolean vari, int tyyppi, int x, int y)
     {
         this.vari=vari;
@@ -21,7 +22,7 @@ public abstract class Nappula
         return tyyppi;
     }    
     
-    protected String annaVariS()
+    public String annaVariS()
     {
         if(vari)
         {
@@ -29,7 +30,7 @@ public abstract class Nappula
         }
         else return "M";
     }
-    protected boolean annaVari()
+    public boolean annaVari()
     {
         return vari;
     }
