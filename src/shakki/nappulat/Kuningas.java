@@ -17,10 +17,10 @@ public class Kuningas extends Nappula
 			{
 				if(Peli.lauta[x-1][y].annaVari()!= this.annaVari())
 				{
-					liikkeet.add(Ruutu(x-1,y));
+					liikkeet.add(new Ruutu(x-1,y));
 				}
 			}
-			else liikkeet.add(Ruutu(x-1,y));				
+			else liikkeet.add(new Ruutu(x-1,y));				
 		}
 		if(x+1<=7)
 		{
@@ -28,10 +28,10 @@ public class Kuningas extends Nappula
 			{
 				if(Peli.lauta[x+1][y].annaVari()!= this.annaVari())
 				{
-					liikkeet.add(Ruutu(x+1,y));
+					liikkeet.add(new Ruutu(x+1,y));
 				}
 			}
-			else liikkeet.add(Ruutu(x+1,y));				
+			else liikkeet.add(new Ruutu(x+1,y));				
 		}
 		if(y-1>=0)
 		{
@@ -39,10 +39,10 @@ public class Kuningas extends Nappula
 			{
 				if(Peli.lauta[x][y-1].annaVari()!= this.annaVari())
 				{
-					liikkeet.add(Ruutu(x,y-1));
+					liikkeet.add(new Ruutu(x,y-1));
 				}
 			}
-			else liikkeet.add(Ruutu(x,y-1));				
+			else liikkeet.add(new Ruutu(x,y-1));				
 		}
 		if(y+1<=7)
 		{
@@ -50,10 +50,10 @@ public class Kuningas extends Nappula
 			{
 				if(Peli.lauta[x][y+1].annaVari()!= this.annaVari())
 				{
-					liikkeet.add(Ruutu(x,y+1));
+					liikkeet.add(new Ruutu(x,y+1));
 				}
 			}
-			else liikkeet.add(Ruutu(x,y+1));				
+			else liikkeet.add(new Ruutu(x,y+1));				
 		}
 		if(x-1>=0 && y-1>=0)
 		{
@@ -61,10 +61,10 @@ public class Kuningas extends Nappula
 			{
 				if(Peli.lauta[x-1][y-1].annaVari()!= this.annaVari())
 				{
-					liikkeet.add(Ruutu(x-1,y-1));
+					liikkeet.add(new Ruutu(x-1,y-1));
 				}
 			}
-			else liikkeet.add(Ruutu(x-1,y-1));				
+			else liikkeet.add(new Ruutu(x-1,y-1));				
 		}
 		if(x+1<=7 && y-1 >=0)
 		{
@@ -72,10 +72,10 @@ public class Kuningas extends Nappula
 			{
 				if(Peli.lauta[x+1][y-1].annaVari()!= this.annaVari())
 				{
-					liikkeet.add(Ruutu(x+1,y-1));
+					liikkeet.add(new Ruutu(x+1,y-1));
 				}
 			}
-			else liikkeet.add(Ruutu(x+1,y-1));				
+			else liikkeet.add(new Ruutu(x+1,y-1));				
 		}
 		if(x-1>=0 && y+1<=7)
 		{
@@ -83,10 +83,10 @@ public class Kuningas extends Nappula
 			{
 				if(Peli.lauta[x-1][y+1].annaVari()!= this.annaVari())
 				{
-					liikkeet.add(Ruutu(x-1,y+1));
+					liikkeet.add(new Ruutu(x-1,y+1));
 				}
 			}
-			else liikkeet.add(Ruutu(x-1,y+1));				
+			else liikkeet.add(new Ruutu(x-1,y+1));				
 		}
 		if(x+1<=7 && y-1 >=0)
 		{
@@ -94,10 +94,10 @@ public class Kuningas extends Nappula
 			{
 				if(Peli.lauta[x+1][y-1].annaVari()!= this.annaVari())
 				{
-					liikkeet.add(Ruutu(x+1,y-1));
+					liikkeet.add(new Ruutu(x+1,y-1));
 				}
 			}
-			else liikkeet.add(Ruutu(x+1,y-1));				
+			else liikkeet.add(new Ruutu(x+1,y-1));				
 		}
 	}
 }
