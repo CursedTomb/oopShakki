@@ -6,7 +6,7 @@ public class Kuningas extends Nappula
 {
 	public Kuningas(boolean vari, int sijaintiX, int sijaintiY)
 	{
-		super(vari, 4, sijaintiY, sijaintiY);
+		super(vari, 4, sijaintiX, sijaintiY);
 	}
 
 	@Override
