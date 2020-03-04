@@ -36,8 +36,9 @@ public abstract class Nappula
     }
 
     //protected abstract void mahdollisetLiikkeet();
-    protected void liiku()
-    {
-
+    protected void liiku(Ruutu alku, Ruutu kohde)
+    {   
+        Peli.lauta[kohde.annaX()][kohde.annaY()] = Peli.lauta[alku.annaX()][Ruutu.annaY()];
+        Peli.lauta[alku.annaX()][alku.annaY()] = null;
     }
 }

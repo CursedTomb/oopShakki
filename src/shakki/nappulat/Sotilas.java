@@ -9,10 +9,14 @@ public class Sotilas extends Nappula
 	public Sotilas(boolean vari, int x, int y)
 	{
 		super(vari, 0, x, y);
+		if(x != 1 && !vari) eka = false;
+		else if(x != 6 && vari) eka = false;
 	}
 
-	protected void liiku()
+	protected void liiku(Ruutu alku, Ruutu kohde)
 	{
+		Peli.lauta[kohde.annaX()][kohde.annaY()] = Peli.lauta[alku.annaX()][Ruutu.annaY()];
+        Peli.lauta[alku.annaX()][alku.annaY()] = null;
 		if(eka)
 		{
 			eka = false;
