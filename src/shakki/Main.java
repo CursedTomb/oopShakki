@@ -8,5 +8,6 @@ public class Main
 	{
 		Peli p = new Peli();
 		p.printtaaLauta();
+		p.vuoro(p.annaVuoro());
 	}
 }

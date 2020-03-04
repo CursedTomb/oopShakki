@@ -2,6 +2,7 @@ package shakki;
 
 import shakki.nappulat.*;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Peli
@@ -13,7 +14,7 @@ public class Peli
         File f = new File("src\\default.txt");
         lataa(f);
     }
-    
+    private boolean pelaajanVuoro = true;
     public void lataa(File f) throws FileNotFoundException
     {
         Scanner sc = new Scanner(f);
@@ -50,7 +51,10 @@ public class Peli
             }
         }    
     }
-
+    public boolean annaVuoro()
+    {
+        return pelaajanVuoro;
+    }
     public void tallenna() throws IOException
     {
         FileWriter f = new FileWriter("src\\save.txt");
@@ -68,23 +72,80 @@ public class Peli
         }
     }
     
-    public void printtaaLauta()
+    public static void printtaaLauta()
     {   
         String aak = "abcdefgh";
-        for(int i = 1;i<=8;i++)
+        System.out.print(" ");
+        for(int i = 0;i<=7;i++)
         {
-            System.out.print("  "+i+ "  ");
+            System.out.print("  "+aak.charAt(i)+ "  ");
         }
         
         for(int i = 0;i<64;i++)
         {
             if(i%8==0) System.out.println("");
+            if(i%8==0) System.out.print(i/8+1);
+            //System.out.println(lauta[i/8][i%8]);
             if(lauta[i/8][1%8] != null)
                 System.out.print("|"+((Nappula)lauta[i/8][i%8]).annaTyyppi()+" "+lauta[i/8][i%8].annaVariS() + "|");
             else
                 System.out.print("|   |");
-            if(i%8==7) System.out.print(aak.charAt(i/8));
-            
+            if(i%8==7) System.out.print(i/8+1);
         }
-    }  
+        System.out.println("");
+        System.out.print(" ");
+        for(int i = 0;i<=7;i++)
+        {
+            System.out.print("  "+aak.charAt(i)+ "  ");
+        }        
+        System.out.println("");
+    }
+
+    public void vuoro(boolean kummanVuoro)
+    {
+        Scanner sc = new Scanner(System.in);
+        String kohdat = "abcdedfg";
+        System.out.print("Which piece to move: ");
+        try
+        {
+            String valinta = sc.nextLine();
+            int valintaX = valinta.charAt(1)-'0'-1;
+            int valintaY = kohdat.indexOf(valinta.charAt(0));
+            
+            if(lauta[valintaX][valintaY] == null)
+            {
+                System.out.println("empty");
+                return;
+            }
+            else
+            {
+                if(lauta[valintaX][valintaY].annaVari() == kummanVuoro)
+                {
+                    lauta[valintaX][valintaY].tyhjennaLiikkeet();
+                    lauta[valintaX][valintaY].mahdollisetLiikkeet();
+                    ArrayList<Ruutu> liikkeet =  lauta[valintaX][valintaY].annaLiikkeet();
+                    for(int i = 0;i<liikkeet.size();i++)
+                    {
+                        System.out.println(Integer.toString(i+1) + 
+                            ". "+kohdat.charAt(liikkeet.get(i).annaY())
+                            + Integer.toString(liikkeet.get(i).annaX()+1));
+                    }
+                    int siirto = Integer.parseInt(sc.nextLine())-1;
+                    Ruutu ruutuK = liikkeet.get(siirto);
+                    lauta[valintaX][valintaY].liiku(ruutuK);
+                    printtaaLauta();
+                }   
+                else
+                {
+                    System.out.println("not your piece!");
+                    return;
+                }
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        pelaajanVuoro = !kummanVuoro;
+    }
 }

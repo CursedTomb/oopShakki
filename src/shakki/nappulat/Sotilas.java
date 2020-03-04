@@ -13,10 +13,13 @@ public class Sotilas extends Nappula
 		else if(x != 6 && vari) eka = false;
 	}
 
-	protected void liiku(Ruutu alku, Ruutu kohde)
+	protected void liiku(Ruutu kohde)
 	{
-		Peli.lauta[kohde.annaX()][kohde.annaY()] = Peli.lauta[alku.annaX()][Ruutu.annaY()];
-        Peli.lauta[alku.annaX()][alku.annaY()] = null;
+		Peli.lauta[kohde.annaX()][kohde.annaY()] = this;
+		System.out.println(Peli.lauta[kohde.annaX()][kohde.annaY()]);
+        Peli.lauta[x][y] = null;
+        x = kohde.annaX();
+        y = kohde.annaY();
 		if(eka)
 		{
 			eka = false;
@@ -27,6 +30,7 @@ public class Sotilas extends Nappula
 	{
 		if(vari)
 		{
+
 			if(x-1 >=0 && !(Peli.lauta[x-1][y] instanceof Nappula))
 			{
 				liikkeet.add(new Ruutu(x-1,y));

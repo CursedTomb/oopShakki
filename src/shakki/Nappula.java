@@ -34,11 +34,21 @@ public abstract class Nappula
     {
         return vari;
     }
-
-    //protected abstract void mahdollisetLiikkeet();
-    protected void liiku(Ruutu alku, Ruutu kohde)
+    public void tyhjennaLiikkeet()
+    {
+        liikkeet.clear();
+    }
+    public ArrayList<Ruutu> annaLiikkeet()
+    {
+        return liikkeet;
+    }
+    abstract protected void mahdollisetLiikkeet();
+    
+    protected void liiku(Ruutu kohde)
     {   
-        Peli.lauta[kohde.annaX()][kohde.annaY()] = Peli.lauta[alku.annaX()][Ruutu.annaY()];
-        Peli.lauta[alku.annaX()][alku.annaY()] = null;
+        Peli.lauta[kohde.annaX()][kohde.annaY()] = this;
+        Peli.lauta[x][y] = null;
+        x = kohde.annaX();
+        y = kohde.annaY();
     }
 }

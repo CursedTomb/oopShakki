@@ -1,10 +1,11 @@
-package shakki;
 
-import shakki.nappulat.*;
-import shakki.*;
 public class test{
 	public static void main(String[] args)
 	{
-		//Nappula sk = new Sotilas(true);
+		Object[] l = new Object[2];
+		l[0] = new Object();
+		l[1] = l[0];
+		l[0] = null;
+		System.out.println(l[1]);
 	}
 }

@@ -9,10 +9,8 @@ public class Kuningatar extends Nappula
 		super(vari, 5, sijaintiX, sijaintiY);
 	}
 
-	@Override
-	protected void liiku()
+	protected void mahdollisetLiikkeet()
 	{
-		// TODO Auto-generated method stub
-		
+		return;
 	}
 }

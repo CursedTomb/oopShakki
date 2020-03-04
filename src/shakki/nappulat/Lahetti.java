@@ -8,11 +8,8 @@ public class Lahetti extends Nappula
 	{
 		super(vari, 3, sijaintiX, sijaintiY);
 	}
-
-	@Override
-	protected void liiku()
+	protected void mahdollisetLiikkeet()
 	{
-		// TODO Auto-generated method stub
-		
+		return;
 	}
 }
