@@ -1,5 +1,4 @@
 package shakki;
-import shakki.*;
 
 public class Ruutu
 {

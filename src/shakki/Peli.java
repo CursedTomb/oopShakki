@@ -49,7 +49,9 @@ public class Peli
                         break;
                 }
             }
-        }    
+        }
+        
+        sc.close();
     }
     public boolean annaVuoro()
     {
@@ -70,9 +72,11 @@ public class Peli
                 f.write(lauta[i/8][i%8].annaTyyppi() + "," + lauta[i/8][i%8].annaVari() + "\n");
             }
         }
+        
+        f.close();
     }
     
-    public static void printtaaLauta()
+    public void printtaaLauta()
     {   
         String aak = "abcdefgh";
         System.out.print(" ");
@@ -138,6 +142,7 @@ public class Peli
             if(lauta[valintaX][valintaY] == null)
             {
                 System.out.println("empty");
+                sc.close();
                 return;
             }
             else
@@ -161,6 +166,7 @@ public class Peli
                 else
                 {
                     System.out.println("not your piece!");
+                    sc.close();
                     return;
                 }
             }

@@ -42,6 +42,7 @@ public abstract class Nappula
     {
         return liikkeet;
     }
+    
     abstract protected void mahdollisetLiikkeet();
     
     protected void liiku(Ruutu kohde)
