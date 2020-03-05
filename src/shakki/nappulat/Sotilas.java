@@ -16,9 +16,8 @@ public class Sotilas extends Nappula
 	protected void liiku(Ruutu kohde)
 	{
 		Peli.lauta[kohde.annaX()][kohde.annaY()] = this;
-		System.out.println(Peli.lauta[kohde.annaX()][kohde.annaY()]);
-        Peli.lauta[x][y] = null;
-        x = kohde.annaX();
+		Peli.lauta[x][y] = null;
+		x = kohde.annaX();
         y = kohde.annaY();
 		if(eka)
 		{

@@ -85,12 +85,35 @@ public class Peli
         {
             if(i%8==0) System.out.println("");
             if(i%8==0) System.out.print(i/8+1);
-            //System.out.println(lauta[i/8][i%8]);
-            if(lauta[i/8][1%8] != null)
-                System.out.print("|"+((Nappula)lauta[i/8][i%8]).annaTyyppi()+" "+lauta[i/8][i%8].annaVariS() + "|");
+            //System.out.println(i);
+            try{
+            if(lauta[i/8][1%8] instanceof Nappula)
+            {
+               /* System.out.print("|"+
+                    lauta[i/8][i%8].annaTyyppi()+
+                    " "+lauta[i/8][i%8].annaVariS() + "|");
+                */
+                System.out.print(
+                lauta[i/8][i%8] ==null);
+               
+
+            }
             else
-                System.out.print("|   |");
+            {
+                System.out.print("|   |"); 
+                
+                //System.out.print(
+                //  lauta[i/8][i%8] != null);
+                //  System.out.print(" "); 
+                    
+            }
             if(i%8==7) System.out.print(i/8+1);
+            }
+            catch(Exception e)
+            {
+                System.out.println(" ");
+                System.out.println(lauta[i/8][i%8]==null);
+            }
         }
         System.out.println("");
         System.out.print(" ");
