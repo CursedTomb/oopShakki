@@ -94,7 +94,7 @@ public class Peli
                 //System.out.print(
                 //lauta[i/8][i%8] == null);
                
-            if(lauta[i/8][1%8] instanceof Nappula)
+            if(lauta[i/8][i%8] instanceof Nappula)
             {
                 System.out.print("|"+
                     lauta[i/8][i%8].annaTyyppi()+
@@ -105,7 +105,7 @@ public class Peli
                
 
             }
-            else if(lauta[i/8][i%8] == null)
+            if(lauta[i/8][i%8] instanceof null)
             {
                 System.out.print("|   |"); 
                 
@@ -119,7 +119,7 @@ public class Peli
             catch(Exception e)
             {
                 System.out.print(" ");
-                System.out.print(lauta[i/8][i%8]==null);
+                System.out.print(lauta[6][0]);
             }
         }
         System.out.println("");
