@@ -91,32 +91,35 @@ public class Peli
             if(i%8==0) System.out.print(i/8+1);
             //System.out.println(i);
             try{
+                //System.out.print(
+                //lauta[i/8][i%8] == null);
+               
             if(lauta[i/8][1%8] instanceof Nappula)
             {
-               /* System.out.print("|"+
+                System.out.print("|"+
                     lauta[i/8][i%8].annaTyyppi()+
                     " "+lauta[i/8][i%8].annaVariS() + "|");
-                */
-                System.out.print(
-                lauta[i/8][i%8] ==null);
+                
+                //System.out.print(
+                //lauta[i/8][i%8] instanceof Nappula);
                
 
             }
-            else
+            else if(lauta[i/8][i%8] == null)
             {
                 System.out.print("|   |"); 
                 
                 //System.out.print(
-                //  lauta[i/8][i%8] != null);
-                //  System.out.print(" "); 
+                  //lauta[i/8][i%8] instanceof Nappula);
+                  //System.out.print(" "); 
                     
             }
             if(i%8==7) System.out.print(i/8+1);
             }
             catch(Exception e)
             {
-                System.out.println(" ");
-                System.out.println(lauta[i/8][i%8]==null);
+                System.out.print(" ");
+                System.out.print(lauta[i/8][i%8]==null);
             }
         }
         System.out.println("");
@@ -131,7 +134,7 @@ public class Peli
     public void vuoro(boolean kummanVuoro)
     {
         Scanner sc = new Scanner(System.in);
-        String kohdat = "abcdedfg";
+        String kohdat = "abcdefgh";
         System.out.print("Which piece to move: ");
         try
         {
