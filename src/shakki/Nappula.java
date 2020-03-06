@@ -52,4 +52,27 @@ public abstract class Nappula
         x = kohde.annaX();
         y = kohde.annaY();
     }
+    
+    protected boolean tarkistaRuutu(int dx, int dy)
+    {
+    	if(dx>7 || dx<0 || dy>7 || dy<0)
+    		return false;
+    	
+    	if(Peli.lauta[dx][dy] == null)
+    	{
+            liikkeet.add(new Ruutu(dx, dy));
+            return true;
+    	}
+    	
+        // Jos ruudussa nappula
+        else if(Peli.lauta[dx][dy] instanceof Nappula)
+        {
+            if(Peli.lauta[dx][dy].annaVari() != this.vari)
+                liikkeet.add(new Ruutu(dx, dy));
+            
+            return false;
+        }
+    	
+    	return false;
+    }
 }

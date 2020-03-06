@@ -13,29 +13,29 @@ public class Lahetti extends Nappula
 		for(int i=-1; i==1; i=1)
 		{
 			// Väliaikainen x ja y joiden arvot muutettavissa, molemmat nousee yksi askel kerrallaan eikä kumpikaan voi nousta yli 7 tai laskea alle 0
-			for(int tempx = x, tempy = y; (tempx <= 7 && tempx >= 0) && (tempy <= 7 && tempy >= 0); tempx++, tempy+=i)
+			for(int a = x, b = y; (a <= 7 && a >= 0) && (b <= 7 && b >= 0); a++, b+=i)
 			{
-				if(Peli.lauta[tempx][tempy] == null)
-					liikkeet.add(new Ruutu(tempx, y));
+				if(Peli.lauta[a][b] == null)
+					liikkeet.add(new Ruutu(a, b));
 				
-				else if(Peli.lauta[tempx][tempy] instanceof Nappula)
+				else if(Peli.lauta[a][b] instanceof Nappula)
                 {
-                    if(Peli.lauta[tempx][tempy].annaVari() != this.vari)
-                        liikkeet.add(new Ruutu(tempx, y));
+                    if(Peli.lauta[a][b].annaVari() != this.vari)
+                        liikkeet.add(new Ruutu(a, b));
                     
                     break;
                 }
 			}
 			
-			for(int tempx = x, tempy = y; (tempx <= 7 && tempx >= 0) && (tempy <= 7 && tempy >= 0); tempx--, tempy+=i)
+			for(int a = x, b = y; (a <= 7 && a >= 0) && (b <= 7 && b >= 0); a--, b+=i)
 			{
-				if(Peli.lauta[tempx][tempy] == null)
-					liikkeet.add(new Ruutu(tempx, y));
+				if(Peli.lauta[a][b] == null)
+					liikkeet.add(new Ruutu(a, b));
 				
-				else if(Peli.lauta[tempx][tempy] instanceof Nappula)
+				else if(Peli.lauta[a][b] instanceof Nappula)
                 {
-                    if(Peli.lauta[tempx][tempy].annaVari() != this.vari)
-                        liikkeet.add(new Ruutu(tempx, y));
+                    if(Peli.lauta[a][b].annaVari() != this.vari)
+                        liikkeet.add(new Ruutu(a, b));
                     
                     break;
                 }

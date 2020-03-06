@@ -90,36 +90,37 @@ public class Peli
             if(i%8==0) System.out.println("");
             if(i%8==0) System.out.print(i/8+1);
             //System.out.println(i);
-            try{
+            try
+            {
                 //System.out.print(
                 //lauta[i/8][i%8] == null);
                
-            if(lauta[i/8][1%8] instanceof Nappula)
-            {
-                System.out.print("|"+
-                    lauta[i/8][i%8].annaTyyppi()+
-                    " "+lauta[i/8][i%8].annaVariS() + "|");
-                
-                //System.out.print(
-                //lauta[i/8][i%8] instanceof Nappula);
-               
-
-            }
-            else if(lauta[i/8][i%8] == null)
-            {
-                System.out.print("|   |"); 
-                
-                //System.out.print(
-                  //lauta[i/8][i%8] instanceof Nappula);
-                  //System.out.print(" "); 
-                    
-            }
-            if(i%8==7) System.out.print(i/8+1);
+	            if(lauta[i/8][i%8] instanceof Nappula)
+	            {
+	                System.out.print("|"+
+	                    lauta[i/8][i%8].annaTyyppi()+
+	                    " "+lauta[i/8][i%8].annaVariS() + "|");
+	                
+	                //System.out.print(
+	                //lauta[i/8][i%8] instanceof Nappula);
+	            }
+	            
+	            else if(lauta[i/8][i%8] == null)
+	            {
+	                System.out.print("|   |");
+	                
+	                //System.out.print(
+	                  //lauta[i/8][i%8] instanceof Nappula);
+	                  //System.out.print(" "); 
+	                    
+	            }
+	            
+	            if(i%8==7) System.out.print(i/8+1);
             }
             catch(Exception e)
             {
                 System.out.print(" ");
-                System.out.print(lauta[i/8][i%8]==null);
+                System.out.print(lauta[i/8][i%8] instanceof Nappula);
             }
         }
         System.out.println("");
