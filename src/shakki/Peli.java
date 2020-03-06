@@ -90,19 +90,20 @@ public class Peli
             if(i%8==0) System.out.println("");
             if(i%8==0) System.out.print(i/8+1);
             //System.out.println(i);
+<<<<<<< HEAD
             try{
                 //System.out.print(
                 //lauta[i/8][i%8] == null);
                
             if(lauta[i/8][i%8] instanceof Nappula)
+=======
+            try
+>>>>>>> 0eea8bedb2d454d208395a6780799a36bbfc5dd6
             {
-                System.out.print("|"+
-                    lauta[i/8][i%8].annaTyyppi()+
-                    " "+lauta[i/8][i%8].annaVariS() + "|");
-                
                 //System.out.print(
-                //lauta[i/8][i%8] instanceof Nappula);
+                //lauta[i/8][i%8] == null);
                
+<<<<<<< HEAD
 
             }
             if(lauta[i/8][i%8] instanceof null)
@@ -115,11 +116,38 @@ public class Peli
                     
             }
             if(i%8==7) System.out.print(i/8+1);
+=======
+	            if(lauta[i/8][i%8] instanceof Nappula)
+	            {
+	                System.out.print("|"+
+	                    lauta[i/8][i%8].annaTyyppi()+
+	                    " "+lauta[i/8][i%8].annaVariS() + "|");
+	                
+	                //System.out.print(
+	                //lauta[i/8][i%8] instanceof Nappula);
+	            }
+	            
+	            else if(lauta[i/8][i%8] == null)
+	            {
+	                System.out.print("|   |");
+	                
+	                //System.out.print(
+	                  //lauta[i/8][i%8] instanceof Nappula);
+	                  //System.out.print(" "); 
+	                    
+	            }
+	            
+	            if(i%8==7) System.out.print(i/8+1);
+>>>>>>> 0eea8bedb2d454d208395a6780799a36bbfc5dd6
             }
             catch(Exception e)
             {
                 System.out.print(" ");
+<<<<<<< HEAD
                 System.out.print(lauta[6][0]);
+=======
+                System.out.print(lauta[i/8][i%8] instanceof Nappula);
+>>>>>>> 0eea8bedb2d454d208395a6780799a36bbfc5dd6
             }
         }
         System.out.println("");
