@@ -88,6 +88,10 @@ public abstract class Nappula
         liikkeet.clear();
     }
     
+    protected void tyhjennaLiikkeet()
+    {
+        liikkeet.clear();
+    }
     /**
      * Tarkistaa pelilaudalla määritellyn ruudun tilan. Lisää ruudun mahdollisten siirtojen listaan ja palauttaa true, jos se on
      * tyhjä ruutu. Jos ruudussa on nappula, lisätään se siirtolistaan jos se on vastustajan nappula. Tämän jälkeen palauttaa false.

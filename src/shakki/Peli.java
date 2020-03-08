@@ -112,6 +112,7 @@ public class Peli
                 System.out.print(" ");
                 System.out.print(lauta[i/8][i%8] instanceof Nappula);
             }
+            
         }
         System.out.println("");
         System.out.print("  ");
@@ -124,6 +125,11 @@ public class Peli
 
     public void vuoro(boolean kummanVuoro)
     {
+        // Tarkistaa onko tilanne shakki
+        if(shakkiTarkistus())
+        {
+            System.out.println("Shakki!");
+        }
         // Luodaan skanneriolio ja alustetaan kohdat
         Scanner sc = new Scanner(System.in);
         String kohdat = "abcdefgh";
@@ -148,7 +154,8 @@ public class Peli
                 // Tarkistaa, onko nappula pelaajan
                 if(lauta[valintaX][valintaY].annaVari() == kummanVuoro)
                 {
-                    lauta[valintaX][valintaY].mahdollisetLiikkeet(); // Laskee kyseisen nappulan liikkeet
+                    lauta[valintaX][valintaY].tyhjennaLiikkeet();
+                    //lauta[valintaX][valintaY].mahdollisetLiikkeet(); // Laskee kyseisen nappulan liikkeet
                     ArrayList<Ruutu> liikkeet = lauta[valintaX][valintaY].annaLiikkeet(); // Luo uuden arraylistin jossa on liikkeet
                     for(int i = 0;i<liikkeet.size();i++)
                     {
@@ -201,7 +208,7 @@ public class Peli
                 if(n != null)
                     if(n.annaVari() != pelaajanVuoro)
                         for(Ruutu r : n.annaLiikkeet())
-                            if(k == r)
+                            if((k.annaX() == r.annaX()) && (k.annaY()==r.annaY()))
                                 return true;
         
         return false;
