@@ -127,7 +127,7 @@ public class Peli
         // Luodaan skanneriolio ja alustetaan kohdat
         Scanner sc = new Scanner(System.in);
         String kohdat = "abcdefgh";
-        System.out.print("Which piece to move: ");
+        System.out.print("Valitse siirrettävä nappula: ");
         try
         {
             // Luodaan syöte ja muokataan se nollaindeksiksi, jota voi käytää arrayssa
@@ -140,7 +140,7 @@ public class Peli
 
             if(lauta[valintaX][valintaY] == null)
             {
-                System.out.println("empty");
+                System.out.println("Tyhjä ruutu, yritä uudelleen.");
                 return;
             }
             else
@@ -172,7 +172,7 @@ public class Peli
                 else
                 {
                     //jos valittu nappula ei ole pelaajan
-                    System.out.println("not your piece!");
+                    System.out.println("Ei sinun nappulasi, yritä uudelleen.");
                     return;
                 }
             }
