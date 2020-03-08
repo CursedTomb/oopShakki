@@ -25,7 +25,6 @@ public class Peli
             String lue = sc.nextLine();            
             String[] kohta = lue.split(",");
             
-            //System.out.println(kohta[0]);
             if(!kohta[0].equals("-1"))
             {
                 switch (Integer.parseInt(kohta[0]))
@@ -125,53 +124,54 @@ public class Peli
 
     public void vuoro(boolean kummanVuoro)
     {
-        //luodaan skanneriolio ja alustetaan kohdat
+        // Luodaan skanneriolio ja alustetaan kohdat
         Scanner sc = new Scanner(System.in);
         String kohdat = "abcdefgh";
         System.out.print("Which piece to move: ");
         try
         {
-            //luoteaan syöte ja muokataan se nollaindeksiksi, jota voi käytää arrayssa
-            //ensin kirjain sitten numero
+            // Luodaan syöte ja muokataan se nollaindeksiksi, jota voi käytää arrayssa
+            // Ensin kirjain sitten numero
             String valinta = sc.nextLine();
             int valintaX = valinta.charAt(1)-'0'-1;
             int valintaY = kohdat.indexOf(valinta.charAt(0));
-            // tarkistaa onko valittu nappula tyhjä
+            
+            // Tarkistaa onko valittu nappula tyhjä
             if(lauta[valintaX][valintaY] == null)
             {
                 System.out.println("empty");
-                //sc.close();
                 return;
             }
             else
             {
-                // tarkistaa onko nappula pelaajan
+                // Tarkistaa, onko nappula pelaajan
                 if(lauta[valintaX][valintaY].annaVari() == kummanVuoro)
                 {
-                    lauta[valintaX][valintaY].mahdollisetLiikkeet(); // laskee kyseisen nappulan liikkeet
-                    ArrayList<Ruutu> liikkeet =  lauta[valintaX][valintaY].annaLiikkeet();//luo uuden arraylistin jossa on liikkeet
+                    lauta[valintaX][valintaY].mahdollisetLiikkeet(); // Laskee kyseisen nappulan liikkeet
+                    ArrayList<Ruutu> liikkeet =  lauta[valintaX][valintaY].annaLiikkeet(); // Luo uuden arraylistin jossa on liikkeet
                     for(int i = 0;i<liikkeet.size();i++)
                     {
-                        //tulostaa vaihtoehdot ja antaa niille numeron esim. 1. a1
+                        // Tulostaa vaihtoehdot ja antaa niille numeron esim. 1. a1
                         System.out.println(Integer.toString(i+1) + 
                             ". "+kohdat.charAt(liikkeet.get(i).annaY())
                             + Integer.toString(liikkeet.get(i).annaX()+1));
                     }
 
-                    //muuttaa pelaajan valitun numeron integraaliksi
+                    // Muuttaa pelaajan valitun numeron integraaliksi
                     int siirto = Integer.parseInt(sc.nextLine())-1;
-                    //otttaa valitun liikkeen ruudun talteen ja antaa sen liikkumismetodille
-                    //joka löytyy Nappula luokasta
+                    
+                    // Ottaa valitun liikkeen ruudun talteen ja antaa sen liikkumismetodille
+                    // Joka löytyy Nappula luokasta
                     Ruutu ruutuK = liikkeet.get(siirto);
                     lauta[valintaX][valintaY].liiku(ruutuK);
-                    //tulostaa laudan uudelleen
+                    
+                    // Tulostaa laudan uudelleen
                     printtaaLauta();
                 }   
                 else
                 {
                     //jos valittu nappula ei ole pelaajan
                     System.out.println("not your piece!");
-                    //sc.close();
                     return;
                 }
             }
@@ -181,7 +181,8 @@ public class Peli
             e.printStackTrace();
             return;
         }
-        //vaihtaa vuoroa jos siirto on onnistunut, palauttaa null jos siirto epäonnistui
+        
+        // Vaihtaa vuoroa jos siirto on onnistunut, palauttaa null jos siirto epäonnistui
         pelaajanVuoro = !kummanVuoro;
     }
 }
