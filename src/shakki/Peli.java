@@ -15,6 +15,7 @@ public class Peli
         lataa(f);
     }
     private boolean pelaajanVuoro = true;
+
     public void lataa(File f) throws FileNotFoundException
     {
         Scanner sc = new Scanner(f);
@@ -89,11 +90,8 @@ public class Peli
         {
             if(i%8==0) System.out.println("");
             if(i%8==0) System.out.print(i/8+1);
-            //System.out.println(i);
             try
             {
-                //System.out.print(
-                //lauta[i/8][i%8] == null);
                
                 if(lauta[i/8][i%8] instanceof Nappula)
                 {
@@ -101,18 +99,11 @@ public class Peli
                         lauta[i/8][i%8].annaTyyppi()+
                         " "+lauta[i/8][i%8].annaVariS() + "|");
                     
-                    //System.out.print(
-                    //lauta[i/8][i%8] instanceof Nappula);
                 }
                 
                 else if(lauta[i/8][i%8] == null)
                 {
-                    System.out.print("|   |");
-                    
-                    //System.out.print(
-                      //lauta[i/8][i%8] instanceof Nappula);
-                      //System.out.print(" "); 
-                        
+                    System.out.print("|   |");     
                 }
                 
                 if(i%8==7) System.out.print(i/8+1);
@@ -134,42 +125,53 @@ public class Peli
 
     public void vuoro(boolean kummanVuoro)
     {
+        //luodaan skanneriolio ja alustetaan kohdat
         Scanner sc = new Scanner(System.in);
         String kohdat = "abcdefgh";
         System.out.print("Which piece to move: ");
         try
         {
+            //luoteaan syöte ja muokataan se nollaindeksiksi, jota voi käytää arrayssa
+            //ensin kirjain sitten numero
             String valinta = sc.nextLine();
             int valintaX = valinta.charAt(1)-'0'-1;
             int valintaY = kohdat.indexOf(valinta.charAt(0));
-            
+            // tarkistaa onko valittu nappula tyhjä
             if(lauta[valintaX][valintaY] == null)
             {
                 System.out.println("empty");
-                sc.close();
+                //sc.close();
                 return;
             }
             else
             {
+                // tarkistaa onko nappula pelaajan
                 if(lauta[valintaX][valintaY].annaVari() == kummanVuoro)
                 {
-                    lauta[valintaX][valintaY].mahdollisetLiikkeet();
-                    ArrayList<Ruutu> liikkeet =  lauta[valintaX][valintaY].annaLiikkeet();
+                    lauta[valintaX][valintaY].mahdollisetLiikkeet(); // laskee kyseisen nappulan liikkeet
+                    ArrayList<Ruutu> liikkeet =  lauta[valintaX][valintaY].annaLiikkeet();//luo uuden arraylistin jossa on liikkeet
                     for(int i = 0;i<liikkeet.size();i++)
                     {
+                        //tulostaa vaihtoehdot ja antaa niille numeron esim. 1. a1
                         System.out.println(Integer.toString(i+1) + 
                             ". "+kohdat.charAt(liikkeet.get(i).annaY())
                             + Integer.toString(liikkeet.get(i).annaX()+1));
                     }
+
+                    //muuttaa pelaajan valitun numeron integraaliksi
                     int siirto = Integer.parseInt(sc.nextLine())-1;
+                    //otttaa valitun liikkeen ruudun talteen ja antaa sen liikkumismetodille
+                    //joka löytyy Nappula luokasta
                     Ruutu ruutuK = liikkeet.get(siirto);
                     lauta[valintaX][valintaY].liiku(ruutuK);
+                    //tulostaa laudan uudelleen
                     printtaaLauta();
                 }   
                 else
                 {
+                    //jos valittu nappula ei ole pelaajan
                     System.out.println("not your piece!");
-                    sc.close();
+                    //sc.close();
                     return;
                 }
             }
@@ -177,7 +179,9 @@ public class Peli
         catch(Exception e)
         {
             e.printStackTrace();
+            return;
         }
+        //vaihtaa vuoroa jos siirto on onnistunut, palauttaa null jos siirto epäonnistui
         pelaajanVuoro = !kummanVuoro;
     }
 }

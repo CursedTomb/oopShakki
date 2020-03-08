@@ -19,8 +19,7 @@ public class Sotilas extends Nappula
 		Peli.lauta[x][y] = null;
 		x = kohde.annaX();
         y = kohde.annaY();
-        System.out.println("dbg");
-		if(eka)
+        if(eka)
 		{
 			eka = false;
 		}
