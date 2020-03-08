@@ -153,7 +153,6 @@ public class Peli
             {
                 if(lauta[valintaX][valintaY].annaVari() == kummanVuoro)
                 {
-                    lauta[valintaX][valintaY].tyhjennaLiikkeet();
                     lauta[valintaX][valintaY].mahdollisetLiikkeet();
                     ArrayList<Ruutu> liikkeet =  lauta[valintaX][valintaY].annaLiikkeet();
                     for(int i = 0;i<liikkeet.size();i++)
