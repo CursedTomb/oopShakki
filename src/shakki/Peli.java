@@ -125,14 +125,17 @@ public class Peli
 
     public void vuoro(boolean kummanVuoro)
     {
+
+        // Luodaan skanneriolio ja alustetaan kohdat
+        Scanner sc = new Scanner(System.in);
+        String kohdat = "abcdefgh";
+
         // Tarkistaa onko tilanne shakki
         if(shakkiTarkistus())
         {
             System.out.println("Shakki!");
         }
-        // Luodaan skanneriolio ja alustetaan kohdat
-        Scanner sc = new Scanner(System.in);
-        String kohdat = "abcdefgh";
+        
         System.out.print("Valitse siirrettävä nappula: ");
         try
         {
