@@ -189,7 +189,7 @@ public class Peli
     
     public boolean shakkiTarkistus()
     {
-        Ruutu k;
+        Ruutu k = new Ruutu(0,0);
         for(Nappula[] lrivi : lauta)
             for(Nappula n : lrivi)
                 if(n instanceof Kuningas)

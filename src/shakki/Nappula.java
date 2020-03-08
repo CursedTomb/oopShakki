@@ -24,6 +24,11 @@ public abstract class Nappula
         this.y = y;
     }
     
+    public Ruutu annaRuutu()
+    {
+    	return new Ruutu(x,y);
+    }
+    
     /**
      * Palauttaa nappulan tyypin
      * @return Kokonaisluku: 0(Sotilas), 1(Torni), 2(Ratsu), 3(Lähetti), 4(Kuningas), 5(Kuningatar)
