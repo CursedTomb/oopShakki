@@ -9,14 +9,18 @@ public class Peli
 {
     public static Nappula[][] lauta = new Nappula[8][8];
     
-    public Peli(boolean i) throws FileNotFoundException
+    public Peli(String s) throws FileNotFoundException
     {
         File f;
-        if(i)
+        if(s.equals("j"))
             f = new File("src\\save.txt");
-        else
+        else if(s.equals("u"))
             f = new File("src\\default.txt");
-        
+        else
+        {
+            System.out.println("virheellinen syöte, otetaan default tilanne");
+            f = new File("src\\default.txt");
+        }
         lataa(f);
     }
     private boolean pelaajanVuoro;

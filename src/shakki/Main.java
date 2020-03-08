@@ -9,8 +9,7 @@ public class Main
 		Scanner skanneri = new Scanner(System.in);
 		System.out.print("Uusi peli vai jatka u/j: ");
 		String s = skanneri.nextLine();
-		boolean i = s.equals("j");
-		Peli p = new Peli(i);
+		Peli p = new Peli(s);
 		p.printtaaLauta();
 		while(true)
 			if(p.vuoro(p.annaVuoro())) break;
