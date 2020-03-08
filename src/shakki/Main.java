@@ -9,6 +9,15 @@ public class Main
 		Peli p = new Peli();
 		p.printtaaLauta();
 		while(true)
-			p.vuoro(p.annaVuoro());
+			if(p.vuoro(p.annaVuoro())) break;
+		if(p.annaVuoro())
+		{
+			System.out.println("Musta voitit pelin!");
+		}
+		else
+		{
+			System.out.println("Valkoinen voitit pelin!");
+		}
+
 	}
 }

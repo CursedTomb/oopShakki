@@ -123,7 +123,7 @@ public class Peli
         System.out.println("");
     }
 
-    public void vuoro(boolean kummanVuoro)
+    public boolean vuoro(boolean kummanVuoro)
     {
 
         // Luodaan skanneriolio ja alustetaan kohdat
@@ -134,8 +134,11 @@ public class Peli
         if(shakkiTarkistus())
         {
             System.out.println("Shakki!");
+            System.out.println("haluatko luovuttaa? k/e: ");
+            String s = sc.nextLine();
+            if(s.equals("k")) return true;
         }
-        
+
         System.out.print("Valitse siirrettävä nappula: ");
         try
         {
@@ -150,7 +153,7 @@ public class Peli
             if(lauta[valintaX][valintaY] == null)
             {
                 System.out.println("Tyhjä ruutu, yritä uudelleen.");
-                return;
+                return false;
             }
             else
             {
@@ -183,18 +186,19 @@ public class Peli
                 {
                     //jos valittu nappula ei ole pelaajan
                     System.out.println("Ei sinun nappulasi, yritä uudelleen.");
-                    return;
+                    return false;
                 }
             }
         }
         catch(Exception e)
         {
             System.out.println("virheellinen syöte");
-            return;
+            return false;
         }
         
         // Vaihtaa vuoroa jos siirto on onnistunut, palauttaa null jos siirto epäonnistui
         pelaajanVuoro = !kummanVuoro;
+        return false;
     }
     
     public boolean shakkiTarkistus()
