@@ -1,12 +1,16 @@
 package shakki;
 
 import java.io.FileNotFoundException;
-
+import java.util.Scanner;
 public class Main
 {
 	public static void main(String[] args) throws FileNotFoundException
 	{
-		Peli p = new Peli();
+		Scanner skanneri = new Scanner(System.in);
+		System.out.print("Uusi peli vai jatka u/j: ");
+		String s = skanneri.nextLine();
+		boolean i = s.equals("j");
+		Peli p = new Peli(i);
 		p.printtaaLauta();
 		while(true)
 			if(p.vuoro(p.annaVuoro())) break;

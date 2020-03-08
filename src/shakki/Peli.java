@@ -9,9 +9,14 @@ public class Peli
 {
     public static Nappula[][] lauta = new Nappula[8][8];
     
-    public Peli() throws FileNotFoundException
+    public Peli(boolean i) throws FileNotFoundException
     {
-        File f = new File("src\\default.txt");
+        File f;
+        if(i)
+            f = new File("src\\save.txt");
+        else
+            f = new File("src\\default.txt");
+        
         lataa(f);
     }
     private boolean pelaajanVuoro;
@@ -198,6 +203,14 @@ public class Peli
         
         // Vaihtaa vuoroa jos siirto on onnistunut, palauttaa null jos siirto epäonnistui
         pelaajanVuoro = !kummanVuoro;
+        try
+        {
+            tallenna();
+        }
+        catch(IOException e)
+        {
+            System.out.println("safe.txt puuttuu");
+        }
         return false;
     }
     
