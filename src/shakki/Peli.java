@@ -14,7 +14,7 @@ public class Peli
         File f = new File("src\\default.txt");
         lataa(f);
     }
-    private boolean pelaajanVuoro = true;
+    private boolean pelaajanVuoro;
 
     public void lataa(File f) throws FileNotFoundException
     {
@@ -50,7 +50,7 @@ public class Peli
                 }
             }
         }
-        
+        pelaajanVuoro = Boolean.valueOf(sc.nextLine());
         sc.close();
     }
     public boolean annaVuoro()
@@ -72,7 +72,7 @@ public class Peli
                 f.write(lauta[i/8][i%8].annaTyyppi() + "," + lauta[i/8][i%8].annaVari() + "\n");
             }
         }
-        
+        f.write(pelaajanVuoro+"");
         f.close();
     }
     
