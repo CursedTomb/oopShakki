@@ -136,7 +136,7 @@ public class Peli
             String valinta = sc.nextLine();
             int valintaX = valinta.charAt(1)-'0'-1;
             int valintaY = kohdat.indexOf(valinta.charAt(0));
-            // tarkistaa onko valittu nappula tyhjä
+            //tarkistaa onko valittu nappula tyhjä
             if(lauta[valintaX][valintaY] == null)
             {
                 System.out.println("empty");
