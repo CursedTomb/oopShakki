@@ -19,6 +19,7 @@ public class Sotilas extends Nappula
 		Peli.lauta[x][y] = null;
 		x = kohde.annaX();
         y = kohde.annaY();
+        System.out.println("dbg");
 		if(eka)
 		{
 			eka = false;
@@ -34,7 +35,7 @@ public class Sotilas extends Nappula
 			{
 				liikkeet.add(new Ruutu(x-1,y));
 			}
-			if(x-2 >=0 && !(Peli.lauta[x-2][y] instanceof Nappula && eka))
+			if(x-2 >=0 && !(Peli.lauta[x-2][y] instanceof Nappula) && eka)
 			{
 				liikkeet.add(new Ruutu(x-2,y));
 			}
@@ -60,7 +61,7 @@ public class Sotilas extends Nappula
 				liikkeet.add(new Ruutu(x+1,y));
 			}
 			
-			if(x+2 <=7 && !(Peli.lauta[x+2][y] instanceof Nappula && eka))
+			if(x+2 <=7 && !(Peli.lauta[x+2][y] instanceof Nappula) && eka)
 			{
 				liikkeet.add(new Ruutu(x+2,y));
 			}
