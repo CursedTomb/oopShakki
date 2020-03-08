@@ -61,6 +61,7 @@ public abstract class Nappula
      */
     public ArrayList<Ruutu> annaLiikkeet()
     {
+        this.mahdollisetLiikkeet();
         return liikkeet;
     }
     

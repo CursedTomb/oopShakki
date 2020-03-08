@@ -149,7 +149,7 @@ public class Peli
                 if(lauta[valintaX][valintaY].annaVari() == kummanVuoro)
                 {
                     lauta[valintaX][valintaY].mahdollisetLiikkeet(); // Laskee kyseisen nappulan liikkeet
-                    ArrayList<Ruutu> liikkeet =  lauta[valintaX][valintaY].annaLiikkeet(); // Luo uuden arraylistin jossa on liikkeet
+                    ArrayList<Ruutu> liikkeet = lauta[valintaX][valintaY].annaLiikkeet(); // Luo uuden arraylistin jossa on liikkeet
                     for(int i = 0;i<liikkeet.size();i++)
                     {
                         // Tulostaa vaihtoehdot ja antaa niille numeron esim. 1. a1
@@ -185,5 +185,25 @@ public class Peli
         
         // Vaihtaa vuoroa jos siirto on onnistunut, palauttaa null jos siirto epäonnistui
         pelaajanVuoro = !kummanVuoro;
+    }
+    
+    public boolean shakkiTarkistus()
+    {
+        Ruutu k;
+        for(Nappula[] lrivi : lauta)
+            for(Nappula n : lrivi)
+                if(n instanceof Kuningas)
+                    if(n.annaVari() == pelaajanVuoro)
+                        k = n.annaRuutu();
+        
+        for(Nappula[] lrivi : lauta)
+            for(Nappula n : lrivi)
+                if(n != null)
+                    if(n.annaVari() != pelaajanVuoro)
+                        for(Ruutu r : n.annaLiikkeet())
+                            if(k == r)
+                                return true;
+        
+        return false;
     }
 }
