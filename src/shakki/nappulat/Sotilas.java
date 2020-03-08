@@ -12,7 +12,7 @@ public class Sotilas extends Nappula
 		if(x != 1 && !vari) eka = false;
 		else if(x != 6 && vari) eka = false;
 	}
-
+	// Liikkumiselle oma metodi koska sotilaan eka liike on erikoinen
 	protected void liiku(Ruutu kohde)
 	{
 		Peli.lauta[kohde.annaX()][kohde.annaY()] = this;
@@ -23,8 +23,9 @@ public class Sotilas extends Nappula
 		{
 			eka = false;
 		}
+		liikkeet.clear();
 	}
-
+	// Liikkeet hardkoodattu
 	protected void mahdollisetLiikkeet()
 	{
 		if(vari)

@@ -8,7 +8,7 @@ public class Kuningas extends Nappula
 	{
 		super(vari, 4, sijaintiX, sijaintiY);
 	}
-
+	// Liikkeet hardkoodattu (spagettia ei suositella lukemaan)
 	protected void mahdollisetLiikkeet()
 	{
 		if(x-1>=0)

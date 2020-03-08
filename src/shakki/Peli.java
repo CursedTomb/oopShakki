@@ -179,7 +179,7 @@ public class Peli
         }
         catch(Exception e)
         {
-            e.printStackTrace();
+            System.out.println("virheellinen syöte");
             return;
         }
         

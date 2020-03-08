@@ -8,7 +8,7 @@ public class Ratsu extends Nappula
 	{
 		super(vari, 2, sijaintiX, sijaintiY);
 	}
-
+	// Liikket hardkoodattu
 	protected void mahdollisetLiikkeet()
 	{
 		if(x+2<=7 && y+1 <=7)
