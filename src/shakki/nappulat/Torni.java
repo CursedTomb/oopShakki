@@ -10,16 +10,16 @@ public class Torni extends Nappula
 	}
 	protected void mahdollisetLiikkeet()
     {
-		
-        for(int i=-1; i==1; i=1)
+		int dx, dy;
+        for(int i=-1; i<2; i+=2)
         {
-        	int dx = x + -i;
-        	int dy = y;
+        	dx = x;
+        	dy = y;
         	
         	while(tarkistaRuutu(dx+=i, dy)) {}
         	
         	dx = x;
-        	dy = y + -i;
+        	dy = y;
         	
         	while(tarkistaRuutu(dx, dy+=i)) {}
         }
