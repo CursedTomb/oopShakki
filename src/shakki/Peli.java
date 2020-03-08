@@ -88,7 +88,7 @@ public class Peli
         for(int i = 0;i<64;i++)
         {
             if(i%8==0) System.out.println("");
-            if(i%8==0) System.out.print(i/8+1);
+            if(i%8==0) System.out.print(i/8+1+" ");
             try
             {
                
@@ -105,7 +105,7 @@ public class Peli
                     System.out.print("|   |");     
                 }
                 
-                if(i%8==7) System.out.print(i/8+1);
+                if(i%8==7) System.out.print(" "+(i/8+1));
             }
             catch(Exception e)
             {
@@ -114,7 +114,7 @@ public class Peli
             }
         }
         System.out.println("");
-        System.out.print(" ");
+        System.out.print("  ");
         for(int i = 0;i<=7;i++)
         {
             System.out.print("  "+aak.charAt(i)+ "  ");
