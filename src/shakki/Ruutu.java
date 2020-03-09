@@ -1,5 +1,8 @@
 package shakki;
 
+// Olio jota käytetään kuvaamaan ruutuja
+// (muulla taval ois ollu liika säätöä)
+
 public class Ruutu
 {
 	private int x;

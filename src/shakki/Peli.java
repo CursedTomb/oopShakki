@@ -11,6 +11,8 @@ public class Peli
     
     public Peli(String s) throws FileNotFoundException
     {
+        // Luodaan uusi file objekti ja päätetään kumpaa käytetään
+        // Eli jatketaanko peliä vai ei, jos syöte outo niin otetaan default case.
         File f;
         if(s.equals("j"))
             f = new File("src\\save.txt");
@@ -21,19 +23,20 @@ public class Peli
             System.out.println("virheellinen syöte, otetaan default tilanne");
             f = new File("src\\default.txt");
         }
+        // Kutsutaan lataa funktio joka alustaa laudan
         lataa(f);
     }
-    private boolean pelaajanVuoro;
+    private boolean pelaajanVuoro; // Tallentaa pelaajan vuoron
 
     public void lataa(File f) throws FileNotFoundException
     {
-        Scanner sc = new Scanner(f);
+        Scanner sc = new Scanner(f); // Luodaan skanneriobjekti joka lukee tiedoston
         
         for(int i = 0;i<64;i++)
         {
             String lue = sc.nextLine();            
             String[] kohta = lue.split(",");
-            
+            // Meidän parseri joka osaa lukea tiedoston ja luoda shakkilaudan sen mukaan
             if(!kohta[0].equals("-1"))
             {
                 switch (Integer.parseInt(kohta[0]))
@@ -59,16 +62,16 @@ public class Peli
                 }
             }
         }
-        pelaajanVuoro = Boolean.valueOf(sc.nextLine());
+        pelaajanVuoro = Boolean.valueOf(sc.nextLine());// Lukee viimeiseltä riviltä kumman pelaajan vuoro
         sc.close();
     }
-    public boolean annaVuoro()
+    public boolean annaVuoro() // Palauttaa kumman vuoro on
     {
         return pelaajanVuoro;
     }
     public void tallenna() throws IOException
     {
-        FileWriter f = new FileWriter("src\\save.txt");
+        FileWriter f = new FileWriter("src\\save.txt"); // Luo FileWriter olion joka osaa tallentaa pelin 
         
         for(int i = 0;i<64;i++)
         {
@@ -81,14 +84,16 @@ public class Peli
                 f.write(lauta[i/8][i%8].annaTyyppi() + "," + lauta[i/8][i%8].annaVari() + "\n");
             }
         }
-        f.write(pelaajanVuoro+"");
+        f.write(pelaajanVuoro+"");// Lopulta lisää tiedostoon kumman pelaajan vuoro
         f.close();
     }
     
+    // Meidän toteutus printtaa nykyinen laudan tilanne (hyvin spagettia)
+
     public void printtaaLauta()
     {   
         String aak = "abcdefgh";
-        System.out.print(" ");
+        System.out.print("  ");
         for(int i = 0;i<=7;i++)
         {
             System.out.print("  "+aak.charAt(i)+ "  ");
@@ -116,7 +121,7 @@ public class Peli
                 
                 if(i%8==7) System.out.print(" "+(i/8+1) + "   " + LisaPrintti(i/8));
             }
-            catch(Exception e)
+            catch(Exception e) // Aika turha try catch mutta olkoot
             {
                 System.out.print(" ");
                 System.out.print(lauta[i/8][i%8] instanceof Nappula);
@@ -139,7 +144,8 @@ public class Peli
         Scanner sc = new Scanner(System.in);
         String kohdat = "abcdefgh";
 
-        // Tarkistaa onko tilanne shakki
+        // Tarkistaa onko tilanne shakki ja antaa mahdollisuuden luovuttaa pelin 
+        // (jos kyseessä on shakkimatti tai muuten vaan haluaa luovuttaa)
         if(shakkiTarkistus())
         {
             System.out.println("Shakki!");
@@ -218,6 +224,10 @@ public class Peli
         return false;
     }
     
+    // Tarkistaa onko nykyinen pelin tilanne shakissa
+    // Käy kaikki laudan ruudut läpi ja etsii kuninkaan, sitten käy kaikkien 
+    // vastustajien mahdolliset liikkeet läpi ja tarkistaan onko jossain kuningas
+
     public boolean shakkiTarkistus()
     {
         Ruutu k = new Ruutu(0,0);
@@ -237,7 +247,7 @@ public class Peli
         
         return false;
     }
-
+    // Käytetään lautaan printtaamisessa kertoo mikä tyyppi on numero
     public String LisaPrintti(int i)
     {
         String pal = "";
