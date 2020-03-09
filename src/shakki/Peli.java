@@ -181,7 +181,7 @@ public class Peli
             if(s.equals("k")) return true;
         }
 
-        System.out.print("Valitse siirrettävä nappula: ");
+        System.out.print("Valitse siirrettävä nappula (esim. a7): ");
         try
         {
             // Luodaan syöte ja muokataan se nollaindeksiksi, jota voi käytää arrayssa
@@ -205,6 +205,11 @@ public class Peli
                     lauta[valintaX][valintaY].tyhjennaLiikkeet();
                     //lauta[valintaX][valintaY].mahdollisetLiikkeet(); // Laskee kyseisen nappulan liikkeet
                     ArrayList<Ruutu> liikkeet = lauta[valintaX][valintaY].annaLiikkeet(); // Luo uuden arraylistin jossa on liikkeet
+                    if(liikkeet.size()==0) // Jos nappulalla ei voi liikkua
+                    {
+                        System.out.println("Ei mahdollisia liikkeitä");
+                        return false;
+                    }
                     for(int i = 0;i<liikkeet.size();i++)
                     {
                         // Tulostaa vaihtoehdot ja antaa niille numeron esim. 1. a1
@@ -213,8 +218,10 @@ public class Peli
                             + Integer.toString(liikkeet.get(i).annaX()+1));
                     }
 
-                    // Muuttaa pelaajan valitun numeron integraaliksi
+                    // Muuttaa pelaajan valitun numeron integeriksi
+                    System.out.print("Minkä siirron teet tai peru -1: ");
                     int siirto = Integer.parseInt(sc.nextLine())-1;
+                    if(siirto == -2) return false;
                     
                     // Ottaa valitun liikkeen ruudun talteen ja antaa sen liikkumismetodille
                     // Joka löytyy Nappula luokasta
