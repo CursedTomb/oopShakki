@@ -114,7 +114,7 @@ public class Peli
                     System.out.print("|   |");     
                 }
                 
-                if(i%8==7) System.out.print(" "+(i/8+1));
+                if(i%8==7) System.out.print(" "+(i/8+1) + "   " + LisaPrintti(i/8));
             }
             catch(Exception e)
             {
@@ -236,5 +236,34 @@ public class Peli
                                 return true;
         
         return false;
+    }
+
+    public String LisaPrintti(int i)
+    {
+        String pal = "";
+        switch(i)
+        {
+            case 1:
+                pal = "0 = sotilas";
+                break;
+            case 2:
+                pal = "1 = torni";
+                break;
+            case 3:
+                pal = "2 = hevonen";
+                break;
+            case 4:
+                pal = "3 = lähetti";
+                break;
+            case 5:
+                pal = "4 = kuningas";
+                break;
+            case 6:
+                pal = "5 = kuningatar";
+                break;
+            default:
+                break;
+        }
+        return pal;
     }
 }
