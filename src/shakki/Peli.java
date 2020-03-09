@@ -28,6 +28,11 @@ public class Peli
     }
     private boolean pelaajanVuoro; // Tallentaa pelaajan vuoron
 
+    /**
+     * Lataa metodille annetun tiedoston, jonka perusteella tämä asettaa pelilaudan tilan.
+     * @param f Tekstitiedosto, jossa pelilaudan tila
+     * @throws FileNotFoundException
+     */
     public void lataa(File f) throws FileNotFoundException
     {
         Scanner sc = new Scanner(f); // Luodaan skanneriobjekti joka lukee tiedoston
@@ -65,10 +70,20 @@ public class Peli
         pelaajanVuoro = Boolean.valueOf(sc.nextLine());// Lukee viimeiseltä riviltä kumman pelaajan vuoro
         sc.close();
     }
+    
+    /**
+     * Palauttaa booleanin, joka kertoo kumman pelaajan vuoro on. True = valkoinen, false = musta.
+     * @return boolean
+     */
     public boolean annaVuoro() // Palauttaa kumman vuoro on
     {
         return pelaajanVuoro;
     }
+    
+    /**
+     * Tallentaa tekstitiedostoon pelilaudan nykyisen tilan ja sen, kumman vuoro pelissä tällä hetkellä on.
+     * @throws IOException
+     */
     public void tallenna() throws IOException
     {
         FileWriter f = new FileWriter("src\\save.txt"); // Luo FileWriter olion joka osaa tallentaa pelin 
@@ -84,12 +99,16 @@ public class Peli
                 f.write(lauta[i/8][i%8].annaTyyppi() + "," + lauta[i/8][i%8].annaVari() + "\n");
             }
         }
-        f.write(pelaajanVuoro+"");// Lopulta lisää tiedostoon kumman pelaajan vuoro
+        f.write(pelaajanVuoro+""); // Lopulta lisää tiedostoon kumman pelaajan vuoro
         f.close();
     }
     
     // Meidän toteutus printtaa nykyinen laudan tilanne (hyvin spagettia)
 
+    /**
+     * Tulostaa pelilaudan tilan pelaajalle. Jokainen ruutu on joko tyhjä tai sisältää nappulan, jonka
+     * arvoa merkkaa kokonaisluku ja kirjain V tai M. Kokonaisluvut kuvaavat nappulan tyyppiä, kirjain nappulan väriä.
+     */
     public void printtaaLauta()
     {   
         String aak = "abcdefgh";
@@ -137,6 +156,14 @@ public class Peli
         System.out.println("");
     }
 
+    /**
+     * Metodi, jossa tapahtuu nappuloiden siirto pelaajan vuorolla. Pyytää pelaajaa valitsemaan
+     * nappulan, jonka jälkeen hänelle annetaan lista mahdollisista siirroista. Siirroista voi valita
+     * haluamansa ruudun, johon pelaaja haluaa liikuttaa nappulan. Vuoron loputtua tallentaa pelilaudan tilan
+     * tiedostoon.
+     * @param kummanVuoro Kumman pelaajan vuoro on nyt: true = valkoinen, false = musta.
+     * @return Palauttaa vastakkaisen pelaajan vuoron jos vuoro onnistui, muuten vuoro ei vaihdu.
+     */
     public boolean vuoro(boolean kummanVuoro)
     {
 
@@ -224,10 +251,12 @@ public class Peli
         return false;
     }
     
-    // Tarkistaa onko nykyinen pelin tilanne shakissa
-    // Käy kaikki laudan ruudut läpi ja etsii kuninkaan, sitten käy kaikkien 
-    // vastustajien mahdolliset liikkeet läpi ja tarkistaan onko jossain kuningas
-
+    /**
+     * Tarkistaa onko nykyinen pelin tilanne shakissa. Käy kaikki laudan ruudut läpi
+     * ja etsii kuninkaan, sitten käy kaikkien vastustajien mahdolliset liikkeet läpi ja
+     * tarkistaa, onko kuningas vaarassa tulla syödyksi tällä vuorolla.
+     * @return Palauttaa true, jos kuningas vaarassa. Muuten false.
+     */
     public boolean shakkiTarkistus()
     {
         Ruutu k = new Ruutu(0,0);
@@ -247,7 +276,13 @@ public class Peli
         
         return false;
     }
-    // Käytetään lautaan printtaamisessa kertoo mikä tyyppi on numero
+    
+    /**
+     * Kutsutaan laudan tulostuksen yhteydessä. Tulostaa pelaajalle näkyviin kaikkien pelilaudalla
+     * näkyvien nappuloiden tyyppiä merkkaavat numerot.
+     * @param i Rivi, jolle teksti tulostetaan
+     * @return Merkkijono, jossa kokonaisluku ja sitä vastaava nappulan tyyppi
+     */
     public String LisaPrintti(int i)
     {
         String pal = "";
